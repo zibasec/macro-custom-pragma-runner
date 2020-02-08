@@ -51,7 +51,7 @@ the value of `args` would look like
 
 ```js
 [ [ 'name', 'Julie' ],
-  { 'details:': { 'favorit_color:': 'green' } } ]
+  { 'details:': { 'favoriteColor:': 'green' } } ]
 ```
 
 It can optionally return an object with a `cloudformation` property, this value will be merged with the architect generated property via `Object.assign()`.
