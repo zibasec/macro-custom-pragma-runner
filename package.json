@@ -1,0 +1,27 @@
+{
+  "name": "macro-custom-pragma-runner",
+  "version": "0.1.0",
+  "description": "A custom macro for @architect/architect that lets write and run your own custom pragmas",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zibasec/macro-custom-pragma-runner.git"
+  },
+  "keywords": [
+    "serverless",
+    "aws"
+  ],
+  "author": "J. Davila (@defionscode)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zibasec/macro-custom-pragma-runner/issues"
+  },
+  "homepage": "https://github.com/zibasec/macro-custom-pragma-runner#readme",
+  "devDependencies": {
+    "debug": "^4.1.1",
+    "standard": "^14.3.1"
+  }
+}
