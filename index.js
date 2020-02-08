@@ -10,7 +10,7 @@ module.exports = async function customPragmaRunner (arc, cloudformation, stage) 
     const args = arc['_' + pragmaName]
     const customPragmaPath = path.resolve(process.cwd(), 'src', 'pragmas', pragmaName)
     const pragamFn = require(customPragmaPath)
-    let outut = null
+    let output = null
     try {
       output = await pragamFn({ arc, cloudformation, stage, args }) || {}
     } catch (err) {
