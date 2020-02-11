@@ -70,6 +70,40 @@ Next time your run `npx arc deploy` you should see `Hello Julie` in stdout.
 
 **IMPORTANT** the custom pragams are executed in the order in which they are defined. This can cause issues if multiple custom pragmas modify the same cloudformation properties.
 
+## Creating and Installing Custom Pragmas
+
+You can also publish pragams to any npm-compatible package manager.
+
+Given an `.arc` file that looks like this:
+
+```
+@app
+myHookApp
+
+@http
+post /hook
+
+@macros
+macro-custom-pragma-runner
+
+@_zibasec/arc-http-raw-body
+post /hook
+
+@aws
+region us-east-1
+```
+
+This macro will look in the following directories, in order, for the custom pragma `_zibasec/arc-http-raw-body`
+
+1. ./src/pragmas/_zibasec/arc-http-raw-body
+1. ./src/pragmas/zibasec/arc-http-raw-body
+1. ./node_modules/_zibasec/arc-http-raw-body (implies installation via `npm install _zibasec/arc-http-raw-body`)
+1. ./node_modules/@_zibasec/arc-http-raw-body (implies installation via `npm install @_zibasec/arc-http-raw-body`)
+1. ./node_modules/zibasec/arc-http-raw-body (implies installation via `npm install zibasec/arc-http-raw-body`)
+1. ./node_modules/@zibasec/arc-http-raw-body (implies installation via `npm install @zibasec/arc-http-raw-body`)
+
+Again, the same rule applies. In packaged-form, your pragma must still contain a root-level `index.js` with a default export.
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
